@@ -153,6 +153,7 @@
     display : flex;
     /* margin : 35px; */
     padding-top : 20px;
+    /* border : 0.5px solid #728CDF; */
 }
 
 .financeInfoLeftContainer {
@@ -243,6 +244,8 @@
     flex-direction: column;
     gap: 12px;
     background: rgba(35, 40, 75, 0.75);
+    height : 202px;
+    margin-top : 10px;
     border : 1px solid #728CDF;
     /* border : 1px solid red; */
 
@@ -291,3 +294,179 @@
     align-items: center;
 }
 
+.BoxDivComponentBodyContainer {
+    display : flex;
+    gap : 40px;
+    position: relative;
+}
+
+.BoxDivComponentBodyContent {
+    display : flex;
+    gap : 35px;
+    /* position: relative; */
+}
+
+.BoxDivComponentBodyContentItem {
+    padding-left : 10px;
+    /* position: absolute; */
+    /* bottom : 5px; */
+}
+
+.BoxDivComponentBodyButtonsContainer {
+    display : flex;
+    flex-direction: column;
+    gap : 10px;
+    /* position : absolute; */
+    /* right : 10px; */
+
+}
+
+.BoxDivComponentBodyButton1 {
+    display : flex;
+    gap : 3px;
+}
+
+.BoxDivComponentBodyButton1 > button {
+    width : 107px;
+    height : 28px;
+    border-radius : 50px;
+    display : flex;
+    gap : 10px;
+    background: transparent;
+}
+
+.BoxDivComponentBodyButton2 {
+    width: 276px;
+    height : 28px;
+    
+}
+.BoxDivComponentBodyButton2 > button {
+    background: transparent;
+}
+
+.financeBombFarmContainer {
+    background: rgba(35, 40, 75, 0.75);
+    height : 377.25px;
+    width: 1046px;
+    margin-top: 25px;
+    border : 0.5px solid #728CDF;
+}
+
+.financeBombFarmContainer > div {
+    border : none;
+}
+
+.financeBombFarmHeadingContainer {
+    display : flex;
+    gap : 350px;
+    border-bottom: 0.5px solid white;
+}
+
+.financeBombFarmHeadingText {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.financeBombFarmHeadingButton > button {
+    width : 148px;
+    border-radius: 50%;
+    display: flex;
+    background: transparent;
+    color : white;
+}
+
+.financeBombFarmHeadingButton {
+    margin-top: 10px;
+}
+
+.financeBondsContainer {
+    display : flex;
+    flex-direction: column;
+    width: 1045px;
+    height : 186px;
+    background: rgba(35, 40, 75, 0.75);
+    margin-top : 25px;
+    gap  :25px;
+}
+
+.financeBondsHeadingContainer {
+    display : flex;
+    gap : 15px;
+}
+
+.financeBondsHeadingTextContainer {
+    display : flex;
+    flex-direction: column;
+    gap : 4px;
+}
+
+.small {
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 19px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+.bold {
+    font-style: normal;
+font-weight: 700;
+font-size: 22px;
+line-height: 30px;
+}
+
+.financeBondsBodyContainer {
+    display : flex;
+    gap : 190px;
+}
+
+.financeBondsBodyLeftContainer {
+    margin-left: 15px;
+}
+
+.financeBondsBodyMiddleContainer {
+    display: flex;
+    flex-direction: column;
+    gap : 15px;
+}
+
+.financeBondsBodyMiddleImageContainer {
+    display : flex;
+    gap : 10px;
+}
+
+
+.financeBondsBodyRightContainer {
+    display : flex;
+    flex-direction: column;
+    gap : 20px;
+}
+
+.financeBondsBodyRightTopContainer {
+    display : flex;
+    gap : 30px;
+    border-bottom: 0.5px solid white;
+    padding-bottom: 10px;
+}
+
+.financeBondsBodyRightTopContainer > button, .financeBondsBodyRightBottomContainer > button {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 10px 4px 15px;
+    gap: 12px;
+    background: transparent;
+    color: white;
+}
+
+.financeBondsBodyRightBottomContainer {
+    display : flex;
+    gap : 50px;
+}

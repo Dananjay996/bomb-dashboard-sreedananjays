@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './dashboard.module.css';
 // import { style } from '@material-ui/system';
 
+import useCurrentEpoch from '../../hooks/useCurrentEpoch';
+
 const Dashboard = () => {
 
   const BombImageSource = 'https://s3-alpha-sig.figma.com/img/5926/6a82/57bf55ba3b3a7b02695860f5a186a8cf?Expires=1680480000&Signature=F1feRRGr3AZUkgY0mAOefHkhWqB2ZFxfZbbJs6EMJm4lq2vvkNQnJUin0MNFJ8wFSjM6hBFGdHZkc4FPBuR6D4V1qr~FbMaYD0qvPEUaFbTN897vh03APFyOlNUx1spbfOUanz8q9MMH-8runJgS9GZVlDpRG3O9M-yls22MmJtsioRHMQjr4Uzc8u-Wm-qJXgLaf1ARGXfD8b10h9Nia~OSu6y2poeHjD3ashiOwlEsVZukFJzAA2x-QdV2V2DvhXH3lps9gefBUcrpukzMPXjnu2ZpXBP8NAQEuqGT1-nodULMEHp1EqLsEwqVNseWI2B0EN3KYCcjOA6zPYFlBw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
@@ -12,6 +14,7 @@ const Dashboard = () => {
 
   const MetaMaskImageSource = 'https://s3-alpha-sig.figma.com/img/9441/1c6a/6485a1c0f3e1a5cb9294b3ceed93ad0a?Expires=1680480000&Signature=kEis3sTH2pciq~x6gscN4pn5UI77wNcv0Hz6mJKr9H5IrRDM9blnzjftLTfV5Lu7s8awS3w5Pl-gDTT2Ztt45a4XzKQvckp4tQ2QDoKmklfuuUxdEDjrMMAkk5D6fINeRs4pZdvZZdI42DbX1pxC8YsGH5tFmlSuuQ6-gtIWpcAKx45nliTx34qMPhsBbvQt2oaEXcyK5QZ4jiWtJ~HPHM~aejMcRovov8qsshhZVIs7UDOf9JAVRz2Ryp~8wSs8N7JC1A7GTtUWTbVY3J5uk9xTuMqrcw0gRDDYTlYNS4qSRLrRF2YJut7izKeoGmUxgOQxYgP2koUto39FWroOXw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
 
+  const currentEpoch = useCurrentEpoch();
 
   const BoxDivComponent = ({name,imgSrc,TVL,Dreturn,YourStakeImg,YourStakeVal1,YourStakeval2,EarnedImg,EarnedVal1,EarnedVal2,width}) => {
     return (
@@ -126,7 +129,7 @@ const Dashboard = () => {
           <div className={styles.financeSummaryMainBodyEpochContainer}>
             <div className={styles.financeSummaryMainBodyEpochCurrent}>
               <div className={styles.financeSummaryMainBodyEpochCurrentText}>Current Epoch</div>
-              <div className={styles.financeSummaryMainBodyEpochCurrentNumber}>258</div>
+              <div className={styles.financeSummaryMainBodyEpochCurrentNumber}>{currentEpoch}</div>
             </div>
             <div className={styles.financeSummaryMainBodyEpochNext}>
               <div className={styles.financeSummaryMainBodyEpochNextTime}>03:38:07</div>
@@ -183,8 +186,8 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <BoxDivComponent />
-        <BoxDivComponent />
+        <BoxDivComponent width="1046px"/>
+        <BoxDivComponent width="1046px"/>
 
       </div>
 

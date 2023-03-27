@@ -209,6 +209,9 @@ const Nav = () => {
               >
                 Docs
               </a>
+              <Link to="/dashboard" className={'navLink ' + classes.link}>
+                Dashboard
+              </Link>
             </Box>
 
             <Box
