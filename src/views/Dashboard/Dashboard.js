@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import styles from './dashboard.module.css';
 // import { style } from '@material-ui/system';
+import { roundAndFormatNumber } from '../../0x'
 
 import useCurrentEpoch from '../../hooks/useCurrentEpoch';
 import useBombStats from '../../hooks/useBombStats';
@@ -51,7 +52,13 @@ const Dashboard = () => {
     [tBondStats],
   );
   const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
-
+  const bombPriceInBNB = useMemo(() => (bombStats ? Number(bombStats.tokenInFtm).toFixed(4) : null), [bombStats]);
+  const bSharePriceInBNB = useMemo(
+    () => (bShareStats ? Number(bShareStats.tokenInFtm).toFixed(4) : null),
+    [bShareStats],
+  );
+  const tBondPriceInBNB = useMemo(() => (tBondStats ? Number(tBondStats.tokenInFtm).toFixed(4) : null), [tBondStats]);
+ 
 
   const BoxDivComponent = ({name,imgSrc,TVL,Dreturn,YourStakeImg,YourStakeVal1,YourStakeval2,EarnedImg,EarnedVal1,EarnedVal2,width}) => {
     return (
@@ -131,9 +138,9 @@ const Dashboard = () => {
                 <img src={`${BombImageSource}`} alt="Bomb" className={styles.financeSummaryMainBodyTableContentItemImage}></img>
                 <div className={styles.financeSummaryMainBodyTableContentText}>$BOMB</div>
                 </div>
-                <div className={styles.financeSummaryMainBodyTableContentItemCS}>{bombCirculatingSupply}</div>
-                <div className={styles.financeSummaryMainBodyTableContentItemTS}>60.9k</div>
-                <div className={styles.financeSummaryMainBodyTableContentItemP}>$0.24 <br /> 1.05 BTCB</div>
+                <div className={styles.financeSummaryMainBodyTableContentItemCS}>{roundAndFormatNumber(bombCirculatingSupply, 2)}</div>
+                <div className={styles.financeSummaryMainBodyTableContentItemTS}>{roundAndFormatNumber(bombTotalSupply, 2)}</div>
+                <div className={styles.financeSummaryMainBodyTableContentItemP}> {bombPriceInDollars} <br /> {bombPriceInBNB} </div>
                 <img className={styles.financeSummaryMainBodyTableContentItemMMImage} src={`${MetaMaskImageSource}`} alt="Meta Mask"></img>
                 
               </div>
@@ -142,9 +149,9 @@ const Dashboard = () => {
                 <img src={`${BSharesImageSource}`} alt="BShare" className={styles.financeSummaryMainBodyTableContentItemImage}></img>
                 <div className={styles.financeSummaryMainBodyTableContentText}>BSHARE</div>
                 </div>
-                <div className={styles.financeSummaryMainBodyTableContentItemCS}>11.4K</div>
-                <div className={styles.financeSummaryMainBodyTableContentItemTS}>8.49M</div>
-                <div className={styles.financeSummaryMainBodyTableContentItemP}>$300 13000 BTCB</div>
+                <div className={styles.financeSummaryMainBodyTableContentItemCS}> {roundAndFormatNumber((bShareCirculatingSupply * bSharePriceInDollars).toFixed(2), 2)} </div>
+                <div className={styles.financeSummaryMainBodyTableContentItemTS}> {roundAndFormatNumber(bShareTotalSupply, 2)} </div>
+                <div className={styles.financeSummaryMainBodyTableContentItemP}> {bSharePriceInDollars} {bSharePriceInBNB} </div>
                 <img className={styles.financeSummaryMainBodyTableContentItemMMImage} src={`${MetaMaskImageSource}`} alt="Meta Mask"></img>
                 
               </div>
@@ -153,9 +160,9 @@ const Dashboard = () => {
                 <img src={`${SBBondImageSource}`} alt="Bomb" className={styles.financeSummaryMainBodyTableContentItemImage}></img>
                 <div className={styles.financeSummaryMainBodyTableContentText}>$BBOND</div>
                 </div>
-                <div className={styles.financeSummaryMainBodyTableContentItemCS}>20.00K</div>
-                <div className={styles.financeSummaryMainBodyTableContentItemTS}>175K</div>
-                <div className={styles.financeSummaryMainBodyTableContentItemP}>$0.28 <br /> 1.15 BTCB</div>
+                <div className={styles.financeSummaryMainBodyTableContentItemCS}> {tBondCirculatingSupply} </div>
+                <div className={styles.financeSummaryMainBodyTableContentItemTS}> {tBondTotalSupply} </div>
+                <div className={styles.financeSummaryMainBodyTableContentItemP}> {tBondPriceInDollars} <br /> {tBondPriceInBNB} </div>
                 <img className={styles.financeSummaryMainBodyTableContentItemMMImage} src={`${MetaMaskImageSource}`} alt="Meta Mask"></img>
                 
               </div>
@@ -166,7 +173,7 @@ const Dashboard = () => {
           <div className={styles.financeSummaryMainBodyEpochContainer}>
             <div className={styles.financeSummaryMainBodyEpochCurrent}>
               <div className={styles.financeSummaryMainBodyEpochCurrentText}>Current Epoch</div>
-              <div className={styles.financeSummaryMainBodyEpochCurrentNumber}>{currentEpoch}</div>
+              <div className={styles.financeSummaryMainBodyEpochCurrentNumber}>{currentEpoch._hex}</div>
             </div>
             <div className={styles.financeSummaryMainBodyEpochNext}>
               <div className={styles.financeSummaryMainBodyEpochNextTime}>03:38:07</div>

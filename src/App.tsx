@@ -16,7 +16,7 @@ import Updaters from './state/Updaters';
 import Loader from './components/Loader';
 import Popups from './components/Popups';
 import useChainId from './hooks/useChainId';
-import Dashboard from './views/Dashboard'
+// import Dashboard from './views/Dashboard'
 //import Regulations from './views/Regulations/Regulations';
 import {RefreshContextProvider} from './contexts/RefreshContext';
 
@@ -26,6 +26,7 @@ const Boardroom = lazy(() => import('./views/Boardroom'));
 const Bond = lazy(() => import('./views/Bond'));
 const Xbomb = lazy(() => import('./views/Stake'));
 const Supply = lazy(() => import('./views/Supply'));
+const Dashboard = lazy(() => import('./views/Dashboard'));
 // const Dashboard = lazy(() => import('./views/Dashboard'));
 // const SBS = lazy(() => import('./views/Sbs'));
 // const Liquidity = lazy(() => import('./views/Liquidity'));
