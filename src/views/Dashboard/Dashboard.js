@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styles from './dashboard.module.css';
 // import { style } from '@material-ui/system';
 
 import useCurrentEpoch from '../../hooks/useCurrentEpoch';
+import useBombStats from '../../hooks/useBombStats';
+import useBondStats from '../../hooks/useBondStats';
+import usebShareStats from '../../hooks/usebShareStats';
+
 
 const Dashboard = () => {
 
@@ -15,6 +19,39 @@ const Dashboard = () => {
   const MetaMaskImageSource = 'https://s3-alpha-sig.figma.com/img/9441/1c6a/6485a1c0f3e1a5cb9294b3ceed93ad0a?Expires=1680480000&Signature=kEis3sTH2pciq~x6gscN4pn5UI77wNcv0Hz6mJKr9H5IrRDM9blnzjftLTfV5Lu7s8awS3w5Pl-gDTT2Ztt45a4XzKQvckp4tQ2QDoKmklfuuUxdEDjrMMAkk5D6fINeRs4pZdvZZdI42DbX1pxC8YsGH5tFmlSuuQ6-gtIWpcAKx45nliTx34qMPhsBbvQt2oaEXcyK5QZ4jiWtJ~HPHM~aejMcRovov8qsshhZVIs7UDOf9JAVRz2Ryp~8wSs8N7JC1A7GTtUWTbVY3J5uk9xTuMqrcw0gRDDYTlYNS4qSRLrRF2YJut7izKeoGmUxgOQxYgP2koUto39FWroOXw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
 
   const currentEpoch = useCurrentEpoch();
+  const bombStats = useBombStats();
+  const bShareStats = usebShareStats();
+  const tBondStats = useBondStats();
+
+
+
+  const bombCirculatingSupply = useMemo(() => (bombStats ? String(bombStats.circulatingSupply) : null), [bombStats]);
+  const bombTotalSupply = useMemo(() => (bombStats ? String(bombStats.totalSupply) : null), [bombStats]);
+  const bombPriceInDollars = useMemo(
+    () => (bombStats ? Number(bombStats.priceInDollars).toFixed(2) : null),
+    [bombStats],
+  );
+
+  const bSharePriceInDollars = useMemo(
+    () => (bShareStats ? Number(bShareStats.priceInDollars).toFixed(2) : null),
+    [bShareStats],
+  );
+  const bShareCirculatingSupply = useMemo(
+    () => (bShareStats ? String(bShareStats.circulatingSupply) : null),
+    [bShareStats],
+  );
+  const bShareTotalSupply = useMemo(() => (bShareStats ? String(bShareStats.totalSupply) : null), [bShareStats]);
+  
+  const tBondPriceInDollars = useMemo(
+    () => (tBondStats ? Number(tBondStats.priceInDollars).toFixed(2) : null),
+    [tBondStats],
+  );
+  const tBondCirculatingSupply = useMemo(
+    () => (tBondStats ? String(tBondStats.circulatingSupply) : null),
+    [tBondStats],
+  );
+  const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
+
 
   const BoxDivComponent = ({name,imgSrc,TVL,Dreturn,YourStakeImg,YourStakeVal1,YourStakeval2,EarnedImg,EarnedVal1,EarnedVal2,width}) => {
     return (
@@ -94,7 +131,7 @@ const Dashboard = () => {
                 <img src={`${BombImageSource}`} alt="Bomb" className={styles.financeSummaryMainBodyTableContentItemImage}></img>
                 <div className={styles.financeSummaryMainBodyTableContentText}>$BOMB</div>
                 </div>
-                <div className={styles.financeSummaryMainBodyTableContentItemCS}>8.66M</div>
+                <div className={styles.financeSummaryMainBodyTableContentItemCS}>{bombCirculatingSupply}</div>
                 <div className={styles.financeSummaryMainBodyTableContentItemTS}>60.9k</div>
                 <div className={styles.financeSummaryMainBodyTableContentItemP}>$0.24 <br /> 1.05 BTCB</div>
                 <img className={styles.financeSummaryMainBodyTableContentItemMMImage} src={`${MetaMaskImageSource}`} alt="Meta Mask"></img>
